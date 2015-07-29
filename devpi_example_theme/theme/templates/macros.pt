@@ -1,0 +1,11 @@
+<metal:head define-macro="headcss" use-macro="request.macros['original-headcss']">
+    <metal:mycss fill-slot="headcss">
+        <link rel="stylesheet" type="text/css" href="${request.theme_static_url('style.css')}" />
+    </metal:mycss>
+</metal:head>
+<metal:footer define-macro="footer" use-macro="request.macros['original-footer']">
+    <metal:mycss fill-slot="footer">
+        <!-- using the example request method -->
+        <p>Page generated <span class="timestamp">${request.generated_at}</span></p>
+    </metal:mycss>
+</metal:footer>

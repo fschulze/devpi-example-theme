@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+    <head>
+        <title>devpi - Organization chart</title>
+        <metal:head use-macro="request.macros['head']" />
+    </head>
+    <body>
+        <metal:search use-macro="request.macros['navigation']" />
+        <div id="content">
+            <h1>Organization chart</h1>
+        </div>
+        <metal:footer use-macro="request.macros['footer']" />
+    </body>
+</html>
