@@ -1,8 +1,13 @@
 from pkg_resources import resource_filename
+from pluggy import HookimplMarker
 from pyramid.events import subscriber
 from pyramid.events import BeforeRender
 
 
+devpiserver_hookimpl = HookimplMarker("devpiserver")
+
+
+@devpiserver_hookimpl
 def devpiserver_cmdline_run(xom):
     # this is slightly hacky, because accessing the command line args like that
     # is not part of the official API, but this is just for convenience
@@ -13,6 +18,7 @@ def devpiserver_cmdline_run(xom):
         return 1
 
 
+@devpiserver_hookimpl
 def devpiserver_pyramid_configure(config, pyramid_config):
     # we use a subdirectory in the serverdir to store the diagrams
     pyramid_config.registry['inheritance_diagram_path'] = config.serverdir.join('.diagrams')

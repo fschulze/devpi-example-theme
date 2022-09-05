@@ -5,7 +5,7 @@ setup(
     name="devpi-example-theme",
     description="devpi-example-theme: an example theme with plugins for devpi-web",
     url="https://github.com/fschulze/devpi-example-theme",
-    version='1.0',
+    version='1.1',
     maintainer="Florian Schulze",
     maintainer_email="florian.schulze@gmx.net",
     license="MIT",
