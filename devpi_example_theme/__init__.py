@@ -1,7 +1,7 @@
-from pkg_resources import resource_filename
 from pluggy import HookimplMarker
 from pyramid.events import subscriber
 from pyramid.events import BeforeRender
+import importlib.resources
 
 
 devpiserver_hookimpl = HookimplMarker("devpiserver")
@@ -12,7 +12,8 @@ def devpiserver_cmdline_run(xom):
     # this is slightly hacky, because accessing the command line args like that
     # is not part of the official API, but this is just for convenience
     if xom.config.args.theme is None:
-        xom.config.args.theme = resource_filename('devpi_example_theme', 'theme')
+        xom.config.args.theme = importlib.resources.path(
+            'devpi_example_theme', 'theme')
     else:
         xom.log.error("You are trying to set a theme, but devpi-example-theme is installed.")
         return 1

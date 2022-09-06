@@ -15,5 +15,6 @@ setup(
     install_requires=[
         'devpi-web'],
     include_package_data=True,
+    python_requires='>=3.7',
     zip_safe=False,
     packages=['devpi_example_theme'])
